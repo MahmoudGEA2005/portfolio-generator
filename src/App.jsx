@@ -15,7 +15,7 @@ import Dashboard from "./components/Dashboard/Dashboard.jsx";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portfolio-generator">
       <Routes>
         <Route
           path="/"
