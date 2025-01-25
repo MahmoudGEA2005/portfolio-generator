@@ -223,7 +223,7 @@
   position: absolute;
   top: 50%;
   right: 30px;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .dash-content .submit-container {
