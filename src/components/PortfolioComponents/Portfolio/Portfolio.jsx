@@ -18,13 +18,16 @@ function Portfolio() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/data", {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com//api/data",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         if (response.ok) {
           try {
             const fullData = await response.json();
@@ -48,7 +51,7 @@ function Portfolio() {
               },
               ABOUTTEXT: data["about"],
               IMGDATA: [
-                `http://127.0.0.1:5000/${data["picture"]}`,
+                `https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com//${data["picture"]}`,
                 data["name"],
               ],
               ABOUTCARDS: [
