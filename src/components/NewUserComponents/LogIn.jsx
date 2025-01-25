@@ -39,7 +39,7 @@ function LogIn() {
       formData.append(key, value);
     });
 
-    fetch("http://127.0.0.1:5000/login", {
+    fetch("https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/login", {
       method: "POST",
       body: formData,
       credentials: "include",

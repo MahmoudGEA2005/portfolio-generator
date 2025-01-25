@@ -11,7 +11,6 @@ import Portfolio from "./components/PortfolioComponents/Portfolio/Portfolio.jsx"
 import VerifyToken from "./components/VerifyToken/VerifyToken.jsx";
 import CreatePortfolio from "./components/CreatePortfolio/CreatePortfolio.jsx";
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
-// import Testing from "./components/Tetsing/Testing.jsx";
 
 function App() {
   return (

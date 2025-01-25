@@ -52,14 +52,17 @@ function Dashboard() {
 
   const fetchUsersPorts = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/fetcher", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ req: "users_ports" }),
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/fetcher",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ req: "users_ports" }),
+        }
+      );
       if (response.ok) {
         try {
           const data = await response.json();
@@ -75,14 +78,17 @@ function Dashboard() {
   };
   const fetchUserData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/fetcher", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ req: "user_data" }),
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/fetcher",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ req: "user_data" }),
+        }
+      );
       if (response.ok) {
         try {
           const data = await response.json();
@@ -104,20 +110,23 @@ function Dashboard() {
 
   const fetchUserTemplateData = async (designId) => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/data", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ req: "user_templates", design_id: designId }),
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/api/data",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ req: "user_templates", design_id: designId }),
+        }
+      );
       if (response.ok) {
         try {
           const data = await response.json();
           data.data[
             "picture"
-          ] = `http://127.0.0.1:5000/${data.data["picture"]}`;
+          ] = `https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/${data.data["picture"]}`;
           const { user_id, id, picture, ...coreData } = data.data;
           setPortfolioImg(picture);
           templateForm.reset(coreData);
@@ -155,10 +164,13 @@ function Dashboard() {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/logout",
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
       if (response.ok) {
         navigate("/");
       }
@@ -178,11 +190,14 @@ function Dashboard() {
     });
     formData.append("request", "design1");
     try {
-      const response = await fetch("http://127.0.0.1:5000/update", {
-        method: "POST",
-        credentials: "include",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/update",
+        {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        }
+      );
       if (response.ok) {
         navigate("/portfolio");
       }
@@ -203,11 +218,14 @@ function Dashboard() {
     sentData.forEach(() => counter++);
     if (counter > 1) {
       try {
-        const response = await fetch("http://127.0.0.1:5000/update", {
-          method: "POST",
-          credentials: "include",
-          body: sentData,
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/update",
+          {
+            method: "POST",
+            credentials: "include",
+            body: sentData,
+          }
+        );
         if (response.ok) {
           alert("Saved");
         } else {
@@ -396,14 +414,17 @@ function Dashboard() {
   const callAdmin = async (isAdmin) => {
     if (isAdmin) {
       try {
-        const response = await fetch("http://127.0.0.1:5000/admin", {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ req: "users_data" }),
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/admin",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ req: "users_data" }),
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           data.users.sort((a, b) => a.id - b.id);
@@ -419,17 +440,20 @@ function Dashboard() {
 
   const deleteUser = async (targetUser, currentUsername) => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/admin", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          req: "delete_user",
-          user_id: targetUser.user_id,
-        }),
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/admin",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            req: "delete_user",
+            user_id: targetUser.user_id,
+          }),
+        }
+      );
       if (response.ok) {
         setDeleteUserPrompt(null);
         if (currentUsername == targetUser.username) {

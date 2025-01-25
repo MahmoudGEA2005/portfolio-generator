@@ -16,14 +16,17 @@ function Layout({ center, height, children }) {
 
   const fetchName = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/fetcher", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ req: "username" }),
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/fetcher",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ req: "username" }),
+        }
+      );
       if (response.ok) {
         try {
           const data = await response.json();
@@ -54,10 +57,13 @@ function Layout({ center, height, children }) {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/logout",
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
       if (response.ok) {
         setName("");
         navigate("/");

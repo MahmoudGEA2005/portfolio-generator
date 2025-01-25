@@ -6,11 +6,14 @@ function VerifyToken({ general, children }) {
   useEffect(() => {
     const verify = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/fetcher", {
-          method: "POST",
-          credentials: "include",
-          body: JSON.stringify({ req: "username" }),
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/fetcher",
+          {
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify({ req: "username" }),
+          }
+        );
         if (!response.ok) {
           if (general !== "true") {
             return navigate("/");
