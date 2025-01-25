@@ -18,18 +18,21 @@ function Permissions({
   const save = async (data) => {
     if (userRow.admin.toString() !== data.permission) {
       try {
-        const response = await fetch("http://127.0.0.1:5000/admin", {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            req: "change_permission",
-            user_id: userRow.user_id,
-            permission: data.permission === "true" ? true : false,
-          }),
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/admin",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              req: "change_permission",
+              user_id: userRow.user_id,
+              permission: data.permission === "true" ? true : false,
+            }),
+          }
+        );
       } catch (e) {
         alert(`Error when accessing the admin endpoint: ${e}`);
       }
