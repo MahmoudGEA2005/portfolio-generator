@@ -20,7 +20,7 @@ function VerifyToken({ general, children }) {
           }
         } else {
           if (general === "true") {
-            return navigate("/Home");
+            return navigate("/");
           }
         }
       } catch (e) {
