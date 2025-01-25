@@ -123,14 +123,17 @@ function CreatePortfolio() {
   useEffect(() => {
     const fetchUsersPorts = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/fetcher", {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ req: "users_ports" }),
-        });
+        const response = await fetch(
+          "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/fetcher",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ req: "users_ports" }),
+          }
+        );
         if (response.ok) {
           try {
             const data = await response.json();
@@ -159,11 +162,14 @@ function CreatePortfolio() {
     });
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/create", {
-        method: "POST",
-        credentials: "include",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://nameless-oasis-38481-2bd1b8ebfc5e.herokuapp.com/create",
+        {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        }
+      );
       if (response.ok) {
         navigate("/portfolio");
       }
