@@ -35,6 +35,7 @@ function Dashboard() {
   const [permissionPannel, setPermissionsPannel] = useState(null);
   const [deleteUserPrompt, setDeleteUserPrompt] = useState(null);
   const [tableHeight, setTableHeight] = useState();
+  const [updated, setUpdated] = useState([false, undefined]);
   const tableRef = useRef();
   const navigate = useNavigate();
 
@@ -227,15 +228,24 @@ function Dashboard() {
           }
         );
         if (response.ok) {
-          alert("Saved");
+          setUpdated([true, "updated"]);
+          setTimeout(() => {
+            setUpdated([false, undefined]);
+          }, 1700);
         } else {
-          alert("Response is not okay");
+          setUpdated([true, "update-error"]);
+          setTimeout(() => {
+            setUpdated([false, undefined]);
+          }, 1700);
         }
       } catch (e) {
         alert(`Unable to connect to the server ${e}`);
       }
     } else {
-      alert("There is nothing to save");
+      setUpdated([true, "nothing"]);
+      setTimeout(() => {
+        setUpdated([false, undefined]);
+      }, 1700);
     }
   };
 
@@ -471,6 +481,11 @@ function Dashboard() {
 
   return (
     <>
+      {updated[0] && (
+        <div className={`status-box ${updated[1]}`}>
+          {updated[1] === "nothing" ? "There is nothing to update" : updated[1]}
+        </div>
+      )}
       {deleteUserPrompt && (
         <Toolkit close={setDeleteUserPrompt}>
           <div className="q-box">

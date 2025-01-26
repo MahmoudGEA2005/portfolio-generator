@@ -407,3 +407,37 @@ td .del {
 .q-box button:hover {
   transform: scale(1.05);
 }
+
+.status-box {
+  position: fixed;
+  width: 40%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999999;
+  padding: 10px;
+  color: #fff;
+  border-radius: 4px;
+  animation: slide-down 0.6s ease-in-out 1;
+}
+
+.updated {
+  background-color: #2bc73e;
+}
+
+.nothing {
+  background-color: var(--logosColor);
+}
+
+.update-error {
+  background-color: #ff253a;
+}
+
+@keyframes slide-down {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 20px;
+  }
+}
