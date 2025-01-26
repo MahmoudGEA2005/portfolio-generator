@@ -31,7 +31,7 @@ function VerifyToken({ general, children }) {
     };
 
     verify();
-  }, []);
+  }, [general]);
   return <>{children}</>;
 }
 
