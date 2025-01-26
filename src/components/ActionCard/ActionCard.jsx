@@ -14,7 +14,7 @@ function Actioncard({ contentCentered, children }) {
 
   const setWHTop = () => {
     if (wavyHRef.current) {
-      const calculatedTop = `calc(280px - ${wavyHRef.current.offsetHeight}px + 4px)`;
+      const calculatedTop = `calc(300px - ${wavyHRef.current.offsetHeight}px + 4px)`;
       setWavyHTop(calculatedTop);
     }
   };

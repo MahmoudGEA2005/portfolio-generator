@@ -96,7 +96,7 @@
 @media (max-width: 1200px) {
   .action-card-box > div:first-of-type {
     width: 100%;
-    height: 280px !important;
+    height: 300px !important;
     gap: 8px;
   }
 }
