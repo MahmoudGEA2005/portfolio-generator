@@ -515,7 +515,7 @@ function Dashboard() {
           style={{
             height:
               currentTab === 1 && selectedDesign === 0
-                ? "1200px"
+                ? "2200px"
                 : currentTab === 2
                 ? `${tableHeight + 400}px`
                 : undefined,
