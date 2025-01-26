@@ -228,6 +228,7 @@ function Dashboard() {
           }
         );
         if (response.ok) {
+          fetchUserData();
           setUpdated([true, "updated"]);
           setTimeout(() => {
             setUpdated([false, undefined]);
