@@ -511,14 +511,11 @@ function Dashboard() {
         <img src={topCR} alt="" className="top-cr" />
         <img src={bottomCR} alt="" className="bottom-cr" />
         <div
-          className="layout-card dashboard-card"
+          className={`layout-card dashboard-card ${
+            currentTab === 1 && selectedDesign === 0 ? "design1-card" : ""
+          }`}
           style={{
-            height:
-              currentTab === 1 && selectedDesign === 0
-                ? "2200px"
-                : currentTab === 2
-                ? `${tableHeight + 400}px`
-                : undefined,
+            height: currentTab === 2 ? `${tableHeight + 400}px` : undefined,
             marginBlock: "50px",
           }}
         >
