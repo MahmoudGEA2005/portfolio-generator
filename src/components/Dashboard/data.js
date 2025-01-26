@@ -16,7 +16,7 @@ export const formFields0 = [
   },
   {
     name: "cv_link",
-    type: "text",
+    type: "url",
     labelName: "CV Link",
   },
   {
@@ -46,7 +46,7 @@ export const formFields0 = [
   },
   {
     name: "aboutlinkonelabel",
-    type: "text",
+    type: "url",
     labelName: "First About Link's Label",
   },
   {
@@ -56,7 +56,7 @@ export const formFields0 = [
   },
   {
     name: "aboutlinktwolabel",
-    type: "text",
+    type: "url",
     labelName: "Second About Link Label",
   },
   {
@@ -66,17 +66,17 @@ export const formFields0 = [
   },
   {
     name: "github",
-    type: "text",
+    type: "url",
     labelName: "GitHub Link",
   },
   {
     name: "youtube",
-    type: "text",
+    type: "url",
     labelName: "YouTube Channel",
   },
   {
     name: "linkedin",
-    type: "text",
+    type: "url",
     labelName: "Linked In Profile",
   },
   {
